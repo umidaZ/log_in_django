@@ -1,0 +1,22 @@
+{% extends 'posts/base.html' %}
+
+{% block content %}
+
+<h1> {{ post.title }} </h1>
+<small>By: {{ post.author }}
+<!--    {% if user.is_authenticated %}-->
+<!--        {% if user.id == post.auther.id %}-->
+            <a href="{% url 'update_post' post.pk %}">Edit</a>
+            <a href="{% url 'delete_post' post.pk %}">Delete</a>
+<!--        {% endif %}-->
+<!--    {% endif %}-->
+</small> <br/>
+<hr>
+<br/>
+{{ post.body }}
+<br/>
+<br/>
+
+<a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+
+{% endblock %}
